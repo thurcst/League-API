@@ -27,24 +27,19 @@ def get_info():
     return (summoner_name, user, ranked_info)
 
 def calculate(ranked_info):
-    ret_code = 111
-    # 111 = common return
-    # 101 = No Flex data, media_flex = 0
-    # 110 = No Solo/Duo data, media_solo = 0
-    # 100 = No ranked data, all media = 0
-
     try:
         wins_flex   = ranked_info[0]['wins']
         losses_flex = ranked_info[0]['losses']
         media_flex  = wins_flex/(wins_flex + losses_flex)
+
     except:
-        ret_code = 101
         media_flex = 0
 
     try:
         wins_solo   = ranked_info[1]['wins']
         losses_solo = ranked_info[1]['losses']
         media_solo  = wins_solo/(wins_solo + losses_solo)
+
     except:
         media_solo = 0
 
