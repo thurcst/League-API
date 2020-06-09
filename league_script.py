@@ -50,8 +50,6 @@ def calculate(ranked_info):
 
     return(media_flex, media_solo)
 
-def print_rotation():
-
 def print_maestry(user):
     mains       = watcher.champion_mastery.by_summoner(my_region, user['id'])
     maestry_rank = []
