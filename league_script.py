@@ -62,15 +62,12 @@ def print_maestry(user):
         maestry_row['Points']   = row['championPoints']
         maestry_rank.append(maestry_row)
 
-
     for key in champ_list['data']:
         row = champ_list['data'][key]
         champ_dictionary[row['key']] = row['id']
 
-
     for row in maestry_rank:
         row['championName'] = champ_dictionary[str(row['Champion'])]
-
 
     df = pd.DataFrame(maestry_rank)
     df = df.set_index('championName')
@@ -79,9 +76,11 @@ def print_maestry(user):
     mains = df.index[:5].tolist()
 
     print('Your characters ranking:')
+
     for index, name in enumerate(mains):
         print( '[' + str(index + 1) + ']' + ' ' + str(name))
         print('Points: ' + str(df.loc[name]['Points']))
+
     return
 
 def print_info(summoner_name, mediaF, mediaS, user, ranked_info):
